@@ -21,20 +21,33 @@ userTimelineInputs.set_ConsumerSecret("HrZL8k1ATMC6Oas70KjaFrgpZxs5jHtVDdZj22Pkd
 userTimelineInputs.set_IncludeRetweets("false");
 userTimelineInputs.set_ScreenName("neiltyson");
 userTimelineInputs.set_AccessTokenSecret("cAWQxW4pmwagS0Ss8uDO1COhtJwwWSzXyWVYiuDjmZMYU");
-userTimelineInputs.set_Count("25");
+userTimelineInputs.set_Count("2");
 
 // Run the choreo, specifying success and error callback handlers
-
-var response;
 userTimelineChoreo.execute(
-    userTimelineInputs,
-    function(results) {
-        response = results.get_Outputs;
-    },
-    function(error) { console.log(error.type); console.log(error.message); }
+    userTimelineInputs, function (results) {
+        resultResponse = JSON.parse(results.get_Response())[0].text;
+    }, function (error) {
+        console.log(error.type); console.log(error.message);
+    }
 );
-let parsedResponse = JSON.parse(response);
-console.log(parsedResponse);
+
+var runTimeline = userTimelineChoreo.execute;
+console.log(runTimeline());
+// function response(result) {
+    
+//     userTimelineChoreo.execute(
+//         userTimelineInputs, function(results) {
+//             resultResponse = JSON.parse(results.get_Response())[0].text;
+//         }, function(error) {
+//             console.log(error.type); console.log(error.message);
+//         }
+//     );
+
+//     result
+// };
+// console.log("RESPONSE: ", response);
+// console.log("RESULT RESPONSE: ", resultResponse);
 
 // Results JSON
 //UserTimelineLatestTweetResultSet {
