@@ -32,10 +32,16 @@ let userTweets = (twitterHandle, tweetCount) => {
         count: tweetCount
     };
     
-    let tweetJSON = twitter.getUserTimeline(userObj, error, success);
-    //return tweets;
+    var initialJSON = twitter.getUserTimeline(userObj, error, success);
+    var fixedResponse = initialJSON.replace(/\\'/g, "'");
+    let tweetObj = JSON.parse(fixedResponse);
+    // let tweetText = tweetJSON.data[0][0].text;
+    return tweetObj;
 };
-console.log(userTweets('@neiltyson', 1));
+
+let neilTweets = userTweets('@neiltyson', 2);
+
+console.log("neilTweets is: ", neilTweets);
 
 // twitter.getMentionsTimeline({ count: '10' }, error, success);
 

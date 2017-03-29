@@ -7,29 +7,15 @@
 </head>
 
 <body>
-    
+    <div>
+        <h1>Tweet List Test</h1>
+    </div>
     <div class="twitterDiv">
-        <div class="tweetSlide"></div>
+        <div class="tweet"></div>
     </div>
 
-
-    <script src="../common/third-party/other/jquery-3.2.0.js"></script>
-    <script src="../common/third-party/fetching/Tweetie-master/tweetie.js"></script>
-    <script class="customTweets" type="text/javascript">
-        $('.twitterDiv .tweetSlide').twittie({
-            username: 'neiltyson',
-            dateFormat: '%b. %d, %Y',
-            template: '<strong class="date">{{date}}</strong> - {{screen_name}} {{tweet}}',
-            count: 6
-        }, function () {
-            setInterval(function () {
-                var item = $('.example2 .tweet ul').find('li:first');
-
-                item.animate({ marginLeft: '-220px', 'opacity': '0' }, 500, function () {
-                    $(this).detach().appendTo('.example2 .tweet ul').removeAttr('style');
-                });
-            }, 2000);
-        });
-    </script>
+    <script src="/common/third-party/other/jquery-3.2.0.js"></script>
+    <script src="/common/third-party/fetching/Tweetie-master/tweetie.js"></script>
+    <script class="customTweets" type="text/javascript" src="index.js"></script>
 </body>
 </html>

@@ -24,71 +24,17 @@ userTimelineInputs.set_AccessTokenSecret("cAWQxW4pmwagS0Ss8uDO1COhtJwwWSzXyWVYiu
 userTimelineInputs.set_Count("25");
 
 // Run the choreo, specifying success and error callback handlers
+
+var response;
 userTimelineChoreo.execute(
     userTimelineInputs,
     function(results) {
-        console.log('#########        result Object:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results);
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_Result:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.getResult());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########     get_ResultString:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.getResultString());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_ResultList:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.getResultList());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_Outputs:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.getOutputs());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_Response:       ########## ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.get_Response());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_Limit:       ############# ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.get_Limit());
-        //        function keysetVar(output) { return results.getKeySet; };
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log('#########        get_Remaining:       ############# ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
-        console.log(results.get_Remaining());
-        console.log('                                               ');
-        console.log('-----------------------------------------------');
-        console.log('                                               ');
+        response = results.get_Outputs;
     },
     function(error) { console.log(error.type); console.log(error.message); }
 );
+let parsedResponse = JSON.parse(response);
+console.log(parsedResponse);
 
 // Results JSON
 //UserTimelineLatestTweetResultSet {
