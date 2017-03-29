@@ -14,6 +14,7 @@
   "dependencies": {
     "fetch-tweets": "^0.1.7",
     "temboo": "^2.14.1",
-    "twitter": "^1.7.0"
+    "twitter": "^1.7.0",
+    "twitter-node-client": "0.0.6"
   }
 }
