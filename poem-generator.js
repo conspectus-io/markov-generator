@@ -30,7 +30,6 @@ let writeLine = (chainObj, numOfWords) => {
                 objLength += 1;
             }
         }
-       
         randomPos = Math.floor(Math.random() * objLength);
        
         for (key in chainObj) {
@@ -41,18 +40,62 @@ let writeLine = (chainObj, numOfWords) => {
                 pos += 1;
             }
         }
-
     };
 
-    for (let i = 0; i < numOfWords; i++) {
+    // generate poem with randomKeySelector
+    for (let i = 0; i < numOfWords; i++) { 
         poem = `${poem}${randomKeySelector(chainObj)} `;
     }
+    
+    let poemArray = poem.split(' ');
+    
+    // modify poem to prevent consecutive duplicate words and nonsensical first/last words
+    for (let i = 0; i < poemArray.length; i++) {
+        if (poemArray[i] === poemArray[i + 1]) {
+            poemArray[i + 1] = randomKeySelector(chainObj);
+        }
+    }
+
+    let firstWord = poemArray[0];
+    let lastWord = poemArray[poemArray.length - 2];
+
+    if (/(s|and)/.test(firstWord)) {
+        console.log(poemArray[0]);
+        poemArray[0] = 'REPLACED';
+        // poemArray[poemArray.length - 2] = 'REPLACED';
+    }
+
+    // for (let i = 0; i < poemArray.length; i++) {
+    //     if (i === 0 || i === poemArray.length - 2) {
+    //         poemArray[i].replace(/(s|and |it |is |a )+/g, 'REPLACED');
+    //     }
+    // }
+
+    // poemArray[0].replace(/(s|and)+/g, 'REPLACED');
+    // poemArray[poemArray.length - 2].replace(/(s|and|it|is|a)+/g, 'REPLACED');
+
+    // console.log('first word:', poemArray[0], 'last word:', poemArray[poemArray.length - 2]);
+    poem = poemArray.join(' ');
+
     return poem;
 };
 // TODO: prevent nonsensical first and last words (ex: poem should not start or end with 'and')
+// prevent same word next to each other
+
+// generatePoem function accepts word corpus string and a number of lines to generate
+let generatePoem = (corpus, numOfLines) => {
+    let poem = '';
+    
+    for (let i = 0; i < numOfLines; i++) {
+        poem = `${poem}${writeLine(generateWordPairs(corpus), 8)}
+`;
+    }
+    return poem;
+};
 
 
-console.log(writeLine(generateWordPairs(sampleText), 8));
+console.log(generatePoem(sampleText, 3));
+// console.log(writeLine(generateWordPairs(sampleText), 8));
 // console.log(parseText(sampleText));
 // console.log(generateWordPairs(sampleText));
 
