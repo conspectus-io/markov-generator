@@ -10,5 +10,10 @@
     "twitter"
   ],
   "author": "Evan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fetch-tweets": "^0.1.7",
+    "temboo": "^2.14.1",
+    "twitter": "^1.7.0"
+  }
 }
