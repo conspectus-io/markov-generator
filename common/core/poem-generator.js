@@ -2,10 +2,10 @@ let sampleText = "Ever since I left the city, you, you, you You and me we just d
 
 // parseText function accepts word corpus string and returns array 
 // of uniformly formatted words with no numbers or punctuation
-let parseText = (string) => string.toLowerCase().replace(/[^a-zA-Z 0-9]+/g,'').split(' ');
+let parseText = (string) => string.toLowerCase().replace(/[^a-zA-Z 0-9]+/g, '').split(' ');
 
 // generateWordPairs function accpets word corpus string
-// returns object containing key value pairs of consecutive words
+// return-s object containing key value pairs of consecutive words
 let generateWordPairs = (text) => {
     let parsedArr = parseText(text);
     let pairObj = {};
@@ -23,15 +23,16 @@ let writeLine = (chainObj, numOfWords) => {
     let poem = '';
 
     let randomKeySelector = (chainObj) => {
-        var key, randomPos, objLength = 0, pos = 0;
-       
+        var key, randomPos, objLength = 0,
+            pos = 0;
+
         for (key in chainObj) {
             if (chainObj.hasOwnProperty(key)) {
                 objLength += 1;
             }
         }
         randomPos = Math.floor(Math.random() * objLength);
-       
+
         for (key in chainObj) {
             if (chainObj.hasOwnProperty(key)) {
                 if (pos === randomPos) {
@@ -43,12 +44,12 @@ let writeLine = (chainObj, numOfWords) => {
     };
 
     // generate poem with randomKeySelector
-    for (let i = 0; i < numOfWords; i++) { 
+    for (let i = 0; i < numOfWords; i++) {
         poem = `${poem}${randomKeySelector(chainObj)} `;
     }
-    
+
     let poemArray = poem.split(' ');
-    
+
     // modify poem to prevent consecutive duplicate words and nonsensical first/last words
     for (let i = 0; i < poemArray.length; i++) {
         if (poemArray[i] === poemArray[i + 1]) {
@@ -61,7 +62,7 @@ let writeLine = (chainObj, numOfWords) => {
 
     if (/(s|and)/.test(firstWord)) {
         // console.log(poemArray[0]);
-        
+
         //*************poemArray[0] = 'REPLACED';***********************
 
         // poemArray[poemArray.length - 2] = 'REPLACED';
@@ -87,7 +88,7 @@ let writeLine = (chainObj, numOfWords) => {
 // generatePoem function accepts word corpus string and a number of lines to generate
 let generatePoem = (corpus, numOfLines) => {
     let poem = '';
-    
+
     for (let i = 0; i < numOfLines; i++) {
         poem = `${poem}${writeLine(generateWordPairs(corpus), 8)}
 `;
@@ -100,5 +101,3 @@ console.log(generatePoem(sampleText, 3));
 // console.log(writeLine(generateWordPairs(sampleText), 8));
 // console.log(parseText(sampleText));
 // console.log(generateWordPairs(sampleText));
-
-

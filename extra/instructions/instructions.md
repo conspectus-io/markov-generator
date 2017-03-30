@@ -93,3 +93,45 @@ Other potential improvements:
 Implement a Markov Chain that goes 2+ words deep
 Implement a Markov Chain that includes punctuation. To do this, the Markov Chain could stores two versions of words: one in a normalized context and one that keeps the original formatting.
 Experiment with HTML and CSS to create a web app that lives outside of repl.it (SUPER BONUS FEATURE)
+
+********************************************************************
+
+Corpuses: Trending Rap Songs, Urban Dictionary
+
+********************************************************************
+
+A limerick is a form of poetry in five-line, predominantly anapestic meter with a strict rhyme scheme (AABBA), which is sometimes obscene with humorous intent. The third and fourth lines are usually shorter than the other three.  
+
+**********************************************
+
+The limerick packs laughs [A]{anatomical}
+
+Into space that is quite [A]{economical}
+
+But the good ones I've [B]{seen}
+
+So seldom are [B]{clean}
+
+And the clean ones so seldom are [A]{comical}
+
+**********************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
