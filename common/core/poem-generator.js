@@ -60,8 +60,10 @@ let writeLine = (chainObj, numOfWords) => {
     let lastWord = poemArray[poemArray.length - 2];
 
     if (/(s|and)/.test(firstWord)) {
-        console.log(poemArray[0]);
-        poemArray[0] = 'REPLACED';
+        // console.log(poemArray[0]);
+        
+        //*************poemArray[0] = 'REPLACED';***********************
+
         // poemArray[poemArray.length - 2] = 'REPLACED';
     }
 

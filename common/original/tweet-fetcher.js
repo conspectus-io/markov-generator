@@ -26,7 +26,7 @@ userTimelineInputs.set_Count("2");
 // Run the choreo, specifying success and error callback handlers
 userTimelineChoreo.execute(
     userTimelineInputs, function (results) {
-        resultResponse = JSON.parse(results.get_Response())[0].text;
+        console.log(results.get_Response());
     }, function (error) {
         console.log(error.type); console.log(error.message);
     }

@@ -34,9 +34,11 @@ let userTweets = (twitterHandle, tweetCount) => {
     
     var initialJSON = twitter.getUserTimeline(userObj, error, success);
     var fixedResponse = initialJSON.replace(/\\'/g, "'");
-    let tweetObj = JSON.parse(fixedResponse);
+    // let tweetObj = JSON.parse(fixedResponse);
     // let tweetText = tweetJSON.data[0][0].text;
-    return tweetObj;
+    // return tweetObj;
+
+    console.log(fixedResponse);
 };
 
 let neilTweets = userTweets('@neiltyson', 2);
