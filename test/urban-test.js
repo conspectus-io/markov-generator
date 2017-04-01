@@ -130,9 +130,9 @@ let generatePoem2 = (corpus, numOfLines) => {
 
 
 let urbanCorpus = (wordNum) => {
-    //   for (let i = 0; i <= wordNum; i++) {
-    //     let randomWordJSON;
-    //   };
+//   for (let i = 0; i <= wordNum; i++) {
+//     let randomWordJSON;
+//   };
 
     let randomWordJSON;
     urban.random().first(function (response) {
